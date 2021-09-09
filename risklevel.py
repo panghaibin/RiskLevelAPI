@@ -105,9 +105,9 @@ def comparsion():
     if high_flag==middle_flag==0:
         shift = pd.DataFrame()
     elif high_flag==0:
-        shift = shift1
-    elif middle_flag==0:
         shift = shift2
+    elif middle_flag==0:
+        shift = shift1
     else:
         shift = shift1.merge(shift2, indicator=False, how='outer')
 
