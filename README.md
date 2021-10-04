@@ -1,5 +1,6 @@
 # RiskLevel
-![Platform](https://img.shields.io/badge/Platform-Windows-green)
+
+![Platform](https://img.shields.io/badge/Platform-Windows%20&%20Linux-green)
 
 Update and compare the change of risk level of regions on COVID-19 in China.  
 自动更新新冠中高风险地区数据，并记录其每日变化。
@@ -23,7 +24,8 @@ When making the request to acquire the data, you may notice there are some appea
 
 在运行程序向网站提交请求时，你会发现代码里有一些看起来像是 `token` 或者 `key` 的秘钥。这些其实都是原网站 JavaScript 代码里的明文。直接使用即可。
 
-## ToDo
+## Compatible with Linux
 
-Compatible with Linux.
+Thanks for the contributions from [@SilenWang](https://github.com/SilenWang) for implementing an linux version, where there also carried out functions like timed requesting and mailing. Switch to **MongoDB** Branch to see.
 
+感谢 [@SilenWang](https://github.com/SilenWang) 提供了 Linux 版本的实现。还提供了定时运行和自动发通知邮件的功能。详情请切换到 **MongoDB** 分支。
