@@ -70,6 +70,8 @@ def main():
     update_time = data['data']['end_update_time']
     update_time = update_time.replace('-', '').replace(' ', '').replace('时', '')
     time_file_name = update_time + '.json'
+    if not os.path.exists(PATHS):
+        os.makedirs(PATHS)
     time_file_path = os.path.join(PATHS, time_file_name)
     if os.path.exists(time_file_path):
         print('File %s already exists' % time_file_name)
