@@ -19,7 +19,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Fetch and save latest risk data
+      - name: Sync Risk Data
+        run: |
+          git checkout api
+          git checkout main
+          git checkout api -- *.json
+          mkdir Archive
+          mv *.json ./Archive
+
+      - name: Fetch and Save Latest Risk Data
         run: |
           if python risklevel.py; then
             echo "push_required=1" >> $GITHUB_ENV;
@@ -28,7 +36,7 @@ jobs:
             echo "No update required.";
           fi
 
-      - name: Push to API branch
+      - name: Push to api Branch
         if: env.push_required == 1
         uses: s0/git-publish-subdir-action@develop
         env:
@@ -36,4 +44,4 @@ jobs:
           BRANCH: api
           FOLDER: Archive
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MESSAGE: "Build: ({sha}) {msg}"
+          MESSAGE: "Update: ({sha}) {date}"
