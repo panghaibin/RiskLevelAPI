@@ -84,4 +84,7 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    if main():
+        exit(0)
+    else:
+        exit(1)

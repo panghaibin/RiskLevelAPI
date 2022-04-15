@@ -21,9 +21,12 @@ jobs:
 
       - name: Fetch and save latest risk data
         run: |
-          python risklevel.py
+          if python risklevel.py; then
+            echo "push_required=1" >> $GITHUB_ENV;
+          fi
 
       - name: Push to GitHub
+        if: env.push_required == "1"
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
