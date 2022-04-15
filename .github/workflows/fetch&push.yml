@@ -11,6 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Sync Risk Data
+        uses: actions/checkout@v3
+        branches:
+          - api
+        with:
+          path: Archive
+
+      - name: Remove .git Directory
+        run: |
+          rm -rf Archive/.git
+
       - uses: actions/setup-python@v2
         with:
           python-version: 3.8
@@ -18,14 +29,6 @@ jobs:
       - run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: Sync Risk Data
-        run: |
-          git checkout api
-          git checkout main
-          git checkout api -- *.json
-          mkdir Archive
-          mv *.json ./Archive
 
       - name: Fetch and Save Latest Risk Data
         run: |
