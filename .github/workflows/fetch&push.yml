@@ -13,9 +13,8 @@ jobs:
 
       - name: Sync Risk Data
         uses: actions/checkout@v3
-        branches:
-          - api
         with:
+          ref: api
           path: Archive
 
       - name: Remove .git Directory
