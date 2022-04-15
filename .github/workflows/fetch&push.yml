@@ -30,7 +30,7 @@ jobs:
         run: |
           if python -u risklevel.py; then
             echo "push_required=1" >> $GITHUB_ENV;
-            echo "msg=\"Update at `TZ=Asia/Shanghai date`\"" >> $GITHUB_ENV;
+            echo "msg=Update at `TZ=Asia/Shanghai date`" >> $GITHUB_ENV;
             echo "Updated risk data successfully.";
           else
             echo "No update required.";
