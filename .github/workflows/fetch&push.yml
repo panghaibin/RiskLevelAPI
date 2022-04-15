@@ -17,22 +17,20 @@ jobs:
           ref: api
           path: Archive
 
-      - name: Remove .git Directory
-        run: |
-          rm -rf Archive/.git
-
       - uses: actions/setup-python@v2
         with:
           python-version: 3.8
 
       - run: |
+          rm -rf Archive/.git
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Fetch and Save Latest Risk Data
         run: |
-          if python risklevel.py; then
+          if python -u risklevel.py; then
             echo "push_required=1" >> $GITHUB_ENV;
+            echo "msg=\"Update at `TZ=Asia/Shanghai date`\"" >> $GITHUB_ENV;
             echo "Updated risk data successfully.";
           else
             echo "No update required.";
@@ -46,4 +44,4 @@ jobs:
           BRANCH: api
           FOLDER: Archive
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MESSAGE: "Update: ({sha}) {date}"
+          MESSAGE: ${{ env.msg }}
