@@ -69,7 +69,9 @@ def main():
     data = fetch_new()
     update_time = data['data']['end_update_time']
     update_time = update_time.replace('-', '').replace(' ', '').replace('时', '')
-    time_file_name = update_time + '.json'
+    data_hash = hashlib.md5(json.dumps(data, sort_keys=True).encode('utf-8')).hexdigest()
+    data_hash = data_hash[:8]
+    time_file_name = f'{update_time}-{data_hash}.json'
     if not os.path.exists(PATHS):
         os.makedirs(PATHS)
     time_file_path = os.path.join(PATHS, time_file_name)
