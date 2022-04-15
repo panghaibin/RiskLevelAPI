@@ -28,12 +28,11 @@ jobs:
             echo "No update required.";
           fi
 
-      - name: Push to GitHub
-        if: env.push_required == 1
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -am "Update risk data at `TZ=Asia/Shanghai date`"
-          git checkout api
-          git push origin api
+      - name: Push to API branch
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: api
+          FOLDER: Archive
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: "Build: ({sha}) {msg}"
