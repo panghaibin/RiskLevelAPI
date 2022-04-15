@@ -5,7 +5,7 @@ An API of the latest risk level regions on COVID-19 in China.
 
 ## Feature
 
-- Fetch the latest risk level data from the [National Health Commission](http://bmfw.www.gov.cn/yqfxdjcx/risk.html) website and save it as *.json* file, and the file name are `latest.json` and `updating-date.json`: e.g. `2020030110.json`.
+- Fetch the latest risk level data from the [National Health Commission](http://bmfw.www.gov.cn/yqfxdjcx/risk.html) website and save it as *.json* file, and the file name are `latest.json` and `updating_time-hash_val.json`: e.g. `2022041511-b38a8084.json`.
 
     从[卫生健康委](http://bmfw.www.gov.cn/yqfxdjcx/risk.html)网站自动下载最新的疫情风险等级数据，并保存为 *.json* 文件，文件名分别为 `latest.json` 和 `更新日期-hash值.json`：如 `2022041511-b38a8084.json`。
 - When GitHub Actions is enabled, the risk level data can be pushed to the `api` branch of the repository. It can be used as an API by visiting <https://github.com/panghaibin/RiskLevelAPI/raw/api/latest.json> 
@@ -19,11 +19,11 @@ An API of the latest risk level regions on COVID-19 in China.
 
 ## Usage
 
-Clone the repo to local and run *risklevel.py*, then an outcome as a *.json* file will be stored in the *Archive* folder.
+Clone the repo to local and run *risklevel.py*, then an outcome as a *.json* file will be stored in the `Archive` folder.
 
 下载项目到本地，运行 *risklevel.py*，结果会保存在 `Archive` 文件夹中。
 
-You can also fork this repository and enable GitHub Actions to automatically update the risk level data every 4 hours and push to the `Archive` folder of the repository.
+You can also fork this repository and enable GitHub Actions to automatically update the risk level data every 4 hours and push to the `api` branch of the repository.
 
 也可以 Fork 本项目并启用 GitHub Actions ，默认每 4 小时获取一次新冠疫情风险等级数据，并将其 Push 到仓库的 `api` 分支中。
 
