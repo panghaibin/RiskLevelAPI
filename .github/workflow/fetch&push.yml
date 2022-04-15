@@ -1,0 +1,31 @@
+name: Fetch Latest Risk Data & Push to GitHub
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Fetche and save latest risk data
+        run: |
+          python risklevel.py
+
+      - name: Push to GitHub
+        run: |
+          git config --global user.name 'panghaibin'
+          git config --global user.email 'panghaibin@users.noreply.github.com'
+          git commit -am "Update risk data"
+          git push
