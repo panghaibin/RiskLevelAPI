@@ -83,6 +83,24 @@ def main():
     print('File %s saved' % time_file_name)
     save(os.path.join(PATHS, 'latest.json'), data)
     print('File latest.json updated')
+    file_list = os.listdir(PATHS)
+    file_list.sort()
+    info = {'file_count': 0, 'file_list': []}
+    for file in file_list:
+        if '-' in file:
+            update_time = file.split('-')[0]
+            update_time += '+0800'
+            update_time = time.strptime(update_time, "%Y%m%d%H%z")
+            update_time = int(time.mktime(update_time))
+            info_dict = {
+                'file_name': file,
+                'update_time': update_time,
+            }
+            info['file_list'].append(info_dict)
+            info['file_count'] += 1
+    info_path = os.path.join(PATHS, 'info.json')
+    save(info_path, info)
+    print('File info.json updated')
     return True
 
 
