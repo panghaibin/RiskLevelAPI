@@ -7,25 +7,26 @@ An API of the latest risk level regions on COVID-19 in China.
 
 - Fetch the latest risk level data from the [National Health Commission](http://bmfw.www.gov.cn/yqfxdjcx/risk.html) website and save it as *.json* file, and the file name are `latest.json` and `[updating_time]-[hash_value].json`(e.g. `2022041511-b38a8084.json`).
 
-    从[卫生健康委](http://bmfw.www.gov.cn/yqfxdjcx/risk.html)网站自动下载最新的疫情风险等级数据，并保存为 *.json* 文件，文件名分别为 `latest.json` 和 `[更新时间]-[hash值].json`（如 `2022041511-b38a8084.json`）。
-- When GitHub Actions is enabled, the risk level data can be pushed to the `api` branch of the repository. It can be used as an API by visiting <https://github.com/panghaibin/RiskLevelAPI/raw/api/latest.json> 
+    从 [卫健委](http://bmfw.www.gov.cn/yqfxdjcx/risk.html) 网站自动下载最新的疫情风险等级数据，并保存为 *.json* 文件，文件名为`[更新时间]-[hash值].json`（如 `2022041511-b38a8084.json`）。
 
-    启用 GitHub Actions 后，可将其 Push 到仓库的 `api` 分支中，访问 
+- When new data is fetched, the `latest.json` and `info.json` files are updated in addition to saving the current data. `latest.json` always holds the latest data, and `info.json` holds the filenames of all the original json files under the `Archive` folder and the corresponding timestamp of the update time. 
 
-    <https://github.com/panghaibin/RiskLevelAPI/raw/api/latest.json>
+  当获取到新数据时，除了保存本次数据外，还会更新 `latest.json` 和 `info.json` 文件。`latest.json` 始终保存最新的数据，`info.json` 保存了`Archive` 文件夹下所有原始 json 文件的文件名及对应的更新时间时间戳。
 
-    作为 API 使用
+- This repository is equipped with GitHub Actions for automatic data updates, which by default fetches data every half hour and pushes it to the `api` branch of the repository. Visiting <https://github.com/panghaibin/RiskLevelAPI/raw/api/latest.json> will keep you up to date with the latest data, which can be called as an API; visiting <https://github.com/panghaibin/ RiskLevelAPI/raw/api/info.json> to get the corresponding information on the historical data stored in this repository
+
+  本项目已启用 GitHub Actions 用于数据的自动更新，默认每半小时获取一次，并将其 Push 到仓库的 `api` 分支中。访问 <https://github.com/panghaibin/RiskLevelAPI/raw/api/latest.json> 将始终获取到最新的数据，可作为 API 调用；访问 <https://github.com/panghaibin/RiskLevelAPI/raw/api/info.json> 可得到本项目存储的历史数据相应信息
 
 
 ## Usage
 
-Clone the repo to local and run *risklevel.py*, then an outcome as a *.json* file will be stored in the `Archive` folder.
+Clone the repo to local and run *risklevel.py*, then the outcome as *.json* files will be stored in the `Archive` folder.
 
 下载项目到本地，运行 *risklevel.py*，结果会保存在 `Archive` 文件夹中。
 
-You can also fork this repository and enable GitHub Actions to automatically update the risk level data every hour and push to the `api` branch of the repository.
+You can also fork this repository and enable GitHub Actions to automatically update the risk level data every half hour and push to the `api` branch of the repository.
 
-也可以 Fork 本项目并启用 GitHub Actions ，默认每小时获取一次新冠疫情风险等级数据，并将其 Push 到仓库的 `api` 分支中。
+也可以 Fork 本项目并启用 GitHub Actions ，默认每半小时获取一次新冠疫情风险等级数据，并将其 Push 到仓库的 `api` 分支中。
 
 ## About the *token* and *key* in the code
 
