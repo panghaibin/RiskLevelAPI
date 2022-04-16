@@ -2,7 +2,7 @@ name: Fetch&Push Latest Risk Data
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "15,45 * * * *"
   workflow_dispatch:
 
 jobs:
