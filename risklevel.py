@@ -68,7 +68,8 @@ def save(file_path, json_data):
 def main():
     data = fetch_new()
     update_time = data['data']['end_update_time']
-    update_time = update_time.replace('-', '').replace(' ', '').replace('时', '')
+    update_time = time.strptime(update_time, "%Y-%m-%d %H时")
+    update_time = time.strftime("%Y%m%d%H", update_time)
     data_hash = hashlib.md5(json.dumps(data, sort_keys=True).encode('utf-8')).hexdigest()
     data_hash = data_hash[:8]
     time_file_name = f'{update_time}-{data_hash}.json'
