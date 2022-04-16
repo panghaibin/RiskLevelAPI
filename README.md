@@ -23,9 +23,9 @@ Clone the repo to local and run *risklevel.py*, then an outcome as a *.json* fil
 
 下载项目到本地，运行 *risklevel.py*，结果会保存在 `Archive` 文件夹中。
 
-You can also fork this repository and enable GitHub Actions to automatically update the risk level data every 4 hours and push to the `api` branch of the repository.
+You can also fork this repository and enable GitHub Actions to automatically update the risk level data every hour and push to the `api` branch of the repository.
 
-也可以 Fork 本项目并启用 GitHub Actions ，默认每 4 小时获取一次新冠疫情风险等级数据，并将其 Push 到仓库的 `api` 分支中。
+也可以 Fork 本项目并启用 GitHub Actions ，默认每小时获取一次新冠疫情风险等级数据，并将其 Push 到仓库的 `api` 分支中。
 
 ## About the *token* and *key* in the code
 
