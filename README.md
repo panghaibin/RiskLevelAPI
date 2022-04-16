@@ -5,9 +5,9 @@ An API of the latest risk level regions on COVID-19 in China.
 
 ## Feature
 
-- Fetch the latest risk level data from the [National Health Commission](http://bmfw.www.gov.cn/yqfxdjcx/risk.html) website and save it as *.json* file, and the file name are `latest.json` and `[updating_time]-[hash_value].json`(e.g. `2022041511-b38a8084.json`).
+- Fetch the latest outbreak risk level data automatically from the [National Health Commission](http://bmfw.www.gov.cn/yqfxdjcx/risk.html) website and save it as a *.json* file with the file name `[update_time]-[hash_value].json` (e.g. `2022041511-b38a8084.json`).
 
-    从 [卫健委](http://bmfw.www.gov.cn/yqfxdjcx/risk.html) 网站自动下载最新的疫情风险等级数据，并保存为 *.json* 文件，文件名为`[更新时间]-[hash值].json`（如 `2022041511-b38a8084.json`）。
+  从 [卫健委](http://bmfw.www.gov.cn/yqfxdjcx/risk.html) 网站自动下载最新的疫情风险等级数据，并保存为 *.json* 文件，文件名为`[更新时间]-[hash值].json`（如 `2022041511-b38a8084.json`）。
 
 - When new data is fetched, the `latest.json` and `info.json` files are updated in addition to saving the current data. `latest.json` always holds the latest data, and `info.json` holds the filenames of all the original json files under the `Archive` folder and the corresponding timestamp of the update time. 
 
@@ -36,12 +36,6 @@ When making the request to acquire the data, you may notice there are some appea
 
 ## The API version equipped with GitHub Actions
 
-This API is based on [@KaikePing](https://github.com/KaikePing/RiskLevel)'s original version, and adds the auto-update function based on GitHub Actions. You can use it as an API.
+This API version is based on [@KaikePing's](https://github.com/KaikePing/RiskLevel) original version, and adds the auto-update function based on GitHub Actions. You can use it as an API.
 
 此 API 版本基于 [@KaikePing](https://github.com/KaikePing/RiskLevel) 的原版修改而来，添加了 GitHub Actions 的自动更新功能，可作为 API 供第三方调用。
-
-## Compatible with Linux
-
-Thanks for the contributions from [@SilenWang](https://github.com/SilenWang) for implementing an linux version, where there also carried out functions like timed requesting and mailing. Go to the origin repository's [**MongoDB** Branch](https://github.com/KaikePing/RiskLevel/tree/MongoDB) to check it.
-
-感谢 [@SilenWang](https://github.com/SilenWang) 提供了 Linux 版本的实现。还提供了定时运行和自动发通知邮件的功能。详情请前往源仓库的 [**MongoDB** 分支](https://github.com/KaikePing/RiskLevel/tree/MongoDB) 查看。
