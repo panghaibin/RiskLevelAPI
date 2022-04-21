@@ -1,7 +1,12 @@
 # RiskLevelAPI
 
-An API of the latest risk level regions on COVID-19 in China.  
+An API of the latest risk level regions on COVID-19 in China.
+
 自动获取最新新冠中高风险地区数据，可作为API调用
+
+There is a frontend [here](https://panghb.eu.org/COVID-Risk-Region/), and visit [panghaibin/COVID-Risk-Region](https://github.com/panghaibin/COVID-Risk-Region) for more information.
+
+此API已有对应的前端项目， [在线查看](https://panghb.eu.org/COVID-Risk-Region/) 。可访问 [panghaibin/COVID-Risk-Region](https://github.com/panghaibin/COVID-Risk-Region) 了解更多信息。
 
 ## Feature
 
@@ -13,9 +18,9 @@ An API of the latest risk level regions on COVID-19 in China.
 
   当获取到新数据时，除了保存本次数据外，还会更新 `latest.json` 和 `info.json` 文件。`latest.json` 始终保存最新的数据，`info.json` 保存了`Archive` 文件夹下所有原始 json 文件的文件名及对应的更新时间时间戳。
 
-- This repository is equipped with GitHub Actions for automatic data updates, which by default fetches data every half hour and pushes it to the `api` branch of the repository. Visiting <https://github.com/panghaibin/RiskLevelAPI/raw/api/latest.json> will keep you up to date with the latest data, which can be called as an API; visiting <https://github.com/panghaibin/RiskLevelAPI/raw/api/info.json> to get the corresponding information on the historical data stored in this repository
+- This repository is equipped with GitHub Actions for automatic data updates, which by default fetches data every half hour and pushes it to the `api` branch of the repository. Visiting <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/latest.json> will keep you up to date with the latest data, which can be called as an API; visiting <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/info.json> to get the corresponding information on the historical data stored in this repository
 
-  本项目已启用 GitHub Actions 用于数据的自动更新，默认每半小时获取一次，并将其 Push 到仓库的 `api` 分支中。访问 <https://github.com/panghaibin/RiskLevelAPI/raw/api/latest.json> 将始终获取到最新的数据，可作为 API 调用；访问 <https://github.com/panghaibin/RiskLevelAPI/raw/api/info.json> 可得到本项目存储的历史数据相应信息
+  本项目已启用 GitHub Actions 用于数据的自动更新，默认每半小时获取一次，并将其 Push 到仓库的 `api` 分支中。访问 <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/latest.json> 将始终获取到最新的数据，可作为 API 调用；访问 <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/info.json> 可得到本项目存储的历史数据相应信息
 
 
 ## Usage
