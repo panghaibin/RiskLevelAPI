@@ -4,9 +4,9 @@ An API of the latest risk level regions on COVID-19 in China.
 
 自动获取最新新冠中高风险地区数据，可作为API调用
 
-There is a frontend [here](https://panghb.eu.org/COVID-Risk-Region/), and visit [panghaibin/COVID-Risk-Region](https://github.com/panghaibin/COVID-Risk-Region) for more information.
+There is a frontend [here](https://covid.caduo.ml/), and visit [panghaibin/COVID-Risk-Region](https://github.com/panghaibin/COVID-Risk-Region) for more information.
 
-此API已有对应的前端项目， [在线查看](https://panghb.eu.org/COVID-Risk-Region/) 。可访问 [panghaibin/COVID-Risk-Region](https://github.com/panghaibin/COVID-Risk-Region) 了解更多信息。
+此API已有对应的前端项目， [在线查看](https://covid.caduo.ml/) 。可访问 [panghaibin/COVID-Risk-Region](https://github.com/panghaibin/COVID-Risk-Region) 了解更多信息。
 
 ## Feature
 
