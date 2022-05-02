@@ -1,6 +1,12 @@
 name: Fetch&Push Latest Risk Data
 
 on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
   schedule:
     - cron: "15,45 * * * *"
   workflow_dispatch:
