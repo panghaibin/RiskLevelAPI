@@ -96,8 +96,10 @@ def get_info_by_list():
 def main():
     data = fetch_new()
     update_time = data['data']['end_update_time']
-    update_time = time.strptime(update_time, "%Y-%m-%d %H时")
-    update_time = time.strftime("%Y%m%d%H", update_time)
+    update_time += '+0800'
+    update_time = datetime.strptime(update_time, "%Y-%m-%d %H时%z")
+    update_timestamp = int(update_time.timestamp())
+    update_time = datetime.strftime(update_time, "%Y%m%d%H")
     data_hash = hashlib.md5(json.dumps(data, sort_keys=True).encode('utf-8')).hexdigest()
     data_hash = data_hash[:8]
     time_file_name = f'{update_time}-{data_hash}.json'
