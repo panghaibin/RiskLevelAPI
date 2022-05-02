@@ -12,6 +12,7 @@ import json
 import time
 import hashlib
 import requests
+from datetime import datetime
 
 # Location of Json files
 PATHS = 'Archive'
@@ -59,10 +60,37 @@ def fetch_new():
     return risk_json
 
 
-def save(file_path, json_data):
+def save_json(file_path, json_data):
     # Save Json file
     with open(file_path, 'w', encoding="utf-8") as outfile:
         json.dump(json_data, outfile, ensure_ascii=False)
+
+
+def get_json(file_path):
+    if not os.path.exists(file_path):
+        return None
+    with open(file_path, 'r', encoding="utf-8") as outfile:
+        json_data = json.load(outfile)
+    return json_data
+
+
+def get_info_by_list():
+    file_list = os.listdir(PATHS)
+    file_list.sort()
+    info = {'file_count': 0, 'file_list': []}
+    for file in file_list:
+        if '-' in file:
+            update_time = file.split('-')[0]
+            update_time += '+0800'
+            update_time = datetime.strptime(update_time, "%Y%m%d%H%z")
+            update_time = int(update_time.timestamp())
+            info_dict = {
+                'file_name': file,
+                'update_time': update_time,
+            }
+            info['file_list'].append(info_dict)
+            info['file_count'] += 1
+    return info
 
 
 def main():
@@ -76,30 +104,25 @@ def main():
     if not os.path.exists(PATHS):
         os.makedirs(PATHS)
     time_file_path = os.path.join(PATHS, time_file_name)
-    if os.path.exists(time_file_path):
+    if os.path.exists(time_file_path) and not force_update:
         print('File %s already exists' % time_file_name)
         return False
-    save(time_file_path, data)
+    save_json(time_file_path, data)
     print('File %s saved' % time_file_name)
-    save(os.path.join(PATHS, 'latest.json'), data)
+    save_json(os.path.join(PATHS, 'latest.json'), data)
     print('File latest.json updated')
-    file_list = os.listdir(PATHS)
-    file_list.sort()
-    info = {'file_count': 0, 'file_list': []}
-    for file in file_list:
-        if '-' in file:
-            update_time = file.split('-')[0]
-            update_time += '+0800'
-            update_time = time.strptime(update_time, "%Y%m%d%H%z")
-            update_time = int(time.mktime(update_time))
-            info_dict = {
-                'file_name': file,
-                'update_time': update_time,
-            }
-            info['file_list'].append(info_dict)
-            info['file_count'] += 1
+
     info_path = os.path.join(PATHS, 'info.json')
-    save(info_path, info)
+    info = get_json(info_path)
+    if info is None or force_update:
+        info = get_info_by_list()
+    else:
+        info['file_count'] += 1
+        info['file_list'].append({
+            'file_name': time_file_name,
+            'update_time': update_timestamp
+        })
+    save_json(info_path, info)
     print('File info.json updated')
     return True
 
