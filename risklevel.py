@@ -94,6 +94,12 @@ def get_info_by_list():
 
 
 def main():
+    force_update = os.environ.get('FORCE_UPDATE', '')
+    force_update = force_update.lower() == 'true'
+
+    if not os.path.exists(PATHS):
+        os.makedirs(PATHS)
+
     data = fetch_new()
     update_time = data['data']['end_update_time']
     update_time += '+0800'
@@ -103,8 +109,6 @@ def main():
     data_hash = hashlib.md5(json.dumps(data, sort_keys=True).encode('utf-8')).hexdigest()
     data_hash = data_hash[:8]
     time_file_name = f'{update_time}-{data_hash}.json'
-    if not os.path.exists(PATHS):
-        os.makedirs(PATHS)
     time_file_path = os.path.join(PATHS, time_file_name)
     if os.path.exists(time_file_path) and not force_update:
         print('File %s already exists' % time_file_name)
