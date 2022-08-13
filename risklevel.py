@@ -17,6 +17,9 @@ from datetime import datetime
 # Location of Json files
 PATHS = 'Archive'
 
+ABS_PATH = os.path.dirname(os.path.abspath(__file__))
+PATHS = os.path.join(ABS_PATH, PATHS)
+
 
 def fetch_new():
     """
