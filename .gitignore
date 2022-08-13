@@ -1,5 +1,6 @@
 # 项目文件
-
+*.local
+Archive
 # Pycharm
 .idea/
 # Byte-compiled / optimized / DLL files
