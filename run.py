@@ -28,13 +28,15 @@ repo.git.pull()
 assert os.path.exists(os.path.join(API_PATH, 'latest.json'))
 
 fetch_result = risklevel_main()
+# get commit message as "Update at Sat Aug 13 22:29:33 CST 2022"
+current_time = datetime.now(tz=timezone(timedelta(hours=8))).strftime("%a %b %d %H:%M:%S %z %Y")
+current_time = current_time.replace('+0800', 'CST')
 if fetch_result:
     repo.git.add(update=True)
-    # get commit message as "Update at Sat Aug 13 22:29:33 CST 2022"
-    current_time = datetime.now(tz=timezone(timedelta(hours=8))).strftime("%a %b %d %H:%M:%S %z %Y")
-    current_time = current_time.replace('+0800', 'CST')
-    repo.git.commit('-m', f'Update at {current_time}')
+    commit_msg = f'Update at {current_time}'
+    print(commit_msg)
+    repo.git.commit('-m', commit_msg)
     repo.git.push()
     print('Update successful')
 else:
-    print('No update needed')
+    print(f'No update needed at {current_time}')
