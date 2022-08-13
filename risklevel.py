@@ -37,7 +37,7 @@ def fetch_new():
     wif_signature = hashlib.sha256(_).hexdigest().upper()
 
     # Send post requests
-    url = 'http://103.66.32.242:8005/zwfwMovePortal/interface/interfaceJson'
+    url = 'http://bmfw.www.gov.cn/bjww/interface/interfaceJson'
     data = {
         "appId": "NcApplication",
         "paasHeader": pass_header,
