@@ -32,7 +32,7 @@ fetch_result = risklevel_main()
 current_time = datetime.now(tz=timezone(timedelta(hours=8))).strftime("%a %b %d %H:%M:%S %z %Y")
 current_time = current_time.replace('+0800', 'CST')
 if fetch_result:
-    repo.git.add(update=True)
+    repo.git.add(all=True)
     commit_msg = f'Update at {current_time}'
     print(commit_msg)
     repo.git.commit('-m', commit_msg)
