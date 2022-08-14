@@ -7,18 +7,27 @@
 此API已有对应的前端项目，[在线查看](https://covid.caduo.ml/) 。可访问 [panghaibin/COVID-Risk-Region](https://github.com/panghaibin/COVID-Risk-Region) 了解更多信息。
 
 ## 功能
+### risklevel.py
 
 - 从 [卫健委](http://bmfw.www.gov.cn/yqfxdjcx/risk.html) 网站自动下载最新的疫情风险等级数据，并保存为 *.json* 文件，文件名为`[更新时间]-[hash值].json`（如 `2022041511-b38a8084.json`）。
 
 - 当获取到新数据时，除了保存本次数据外，还会更新 `latest.json` 和 `info.json` 文件。`latest.json` 始终保存最新的数据，`info.json` 保存了`Archive` 文件夹下所有原始 json 文件的文件名及对应的更新时间时间戳。
 
-- 本项目已启用 GitHub Actions 用于数据的自动更新，默认每 20 分钟获取一次，并将其 Push 到仓库的 `api` 分支中。访问 <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/latest.json> 将始终获取到最新的数据，可作为 API 调用；访问 <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/info.json> 可得到本项目存储的历史数据相应信息
+### GitHub Actions
+
+- 本项目已启用 GitHub Actions 用于数据的自动更新，每 2 小时获取一次，并将其 Push 到仓库的 `api` 分支中。访问 <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/latest.json> 将始终获取到最新的数据，可作为 API 调用；访问 <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/info.json> 可得到本项目存储的历史数据相应信息
+
+### run.py
+
+- 脚本可同步 Git 仓库的 API 数据，运行时会自动获取最新的数据，并将其 Push 到仓库的 `api` 分支中。该脚本可部署至服务器上，并在服务器上运行，可实现数据的自动更新。用于同步的 Git 仓库可自定义。
 
 ## 使用
 
-下载项目到本地，运行 *risklevel.py*，结果会保存在 `Archive` 文件夹中。
+- 下载项目到本地，运行 *risklevel.py*，结果会保存在 `Archive` 文件夹中。
 
-也可以 Fork 本项目并启用 GitHub Actions ，默认每 20 分钟获取一次新冠疫情风险等级数据，并将其 Push 到仓库的 `api` 分支中。
+- 或者 Fork 本项目并启用 GitHub Actions ，每 2 小时获取一次新冠疫情风险等级数据，并将其 Push 到仓库的 `api` 分支中。
+
+- 也可在服务器上设置定时任务，运行 run.py 脚本，实现数据的自动更新，并 Push 至指定仓库。
 
 ## 关于代码中的 *token* 和 *key*
 
