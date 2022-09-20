@@ -129,7 +129,8 @@ def main():
         info['file_count'] += 1
         info['file_list'].append({
             'file_name': time_file_name,
-            'update_time': update_timestamp
+            'update_time': update_timestamp,
+            'save_time': int(time.time()),
         })
     save_json(info_path, info)
     print('File info.json updated')
