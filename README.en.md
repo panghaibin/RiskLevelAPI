@@ -4,7 +4,7 @@
 
 An API of the latest risk level regions on COVID-19 in China.
 
-There is a frontend [here](https://covid.caduo.ml/), and visit [panghaibin/COVID-Risk-Region](https://github.com/panghaibin/COVID-Risk-Region) for more information.
+There is a frontend [here](https://covid.risk-region.ml/), and visit [panghaibin/COVID-Risk-Region](https://github.com/panghaibin/COVID-Risk-Region) for more information.
 
 ## Feature
 ### risklevel.py
@@ -16,6 +16,8 @@ There is a frontend [here](https://covid.caduo.ml/), and visit [panghaibin/COVID
 ### GitHub Actions
 
 - This repository is equipped with GitHub Actions for automatic data updates, which by default fetches data every 2 hours and pushes it to the `api` branch of the repository. Visiting <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/latest.json> will keep you up to date with the latest data, which can be called as an API; visiting <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/info.json> to get the corresponding information on the historical data stored in this repository
+
+- You can also use <https://api.risk-region.ml/latest.json> and <https://api.risk-region.ml/info.json> as an API, which are deployed on Cloudflare Pages
 
 ### run.py
 

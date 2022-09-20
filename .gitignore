@@ -1,4 +1,6 @@
 # 项目文件
+history*.json
+temp*.py
 *.local
 Archive
 # Pycharm
