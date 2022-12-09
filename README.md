@@ -15,7 +15,7 @@
 
 ### GitHub Actions
 
-- 本项目已启用 GitHub Actions 用于数据的自动更新，每 2 小时获取一次，并将其 Push 到仓库的 `api` 分支中。访问 <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/latest.json> 将始终获取到最新的数据，可作为 API 调用；访问 <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/info.json> 可得到本项目存储的历史数据相应信息
+- 本项目已启用 GitHub Actions 用于数据的自动更新，并将其 Push 到仓库的 `api` 分支中。访问 <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/latest.json> 将始终获取到最新的数据，可作为 API 调用；访问 <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/info.json> 可得到本项目存储的历史数据相应信息
 
 - 也可使用 <https://api.risk-region.ml/latest.json> 和 <https://api.risk-region.ml/info.json> 作为 API 调用，此 API 部署在 Cloudflare Pages 上
 
@@ -27,7 +27,7 @@
 
 - 下载项目到本地，运行 *risklevel.py*，结果会保存在 `Archive` 文件夹中。
 
-- 或者 Fork 本项目并启用 GitHub Actions ，每 2 小时获取一次新冠疫情风险等级数据，并将其 Push 到仓库的 `api` 分支中。
+- 或者 Fork 本项目并启用 GitHub Actions ，自动获取新冠疫情风险等级数据，并将其 Push 到仓库的 `api` 分支中。
 
 - 也可在服务器上设置定时任务，运行 run.py 脚本，实现数据的自动更新，并 Push 至指定仓库。
 

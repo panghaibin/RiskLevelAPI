@@ -15,7 +15,7 @@ There is a frontend [here](https://covid.risk-region.ml/), and visit [panghaibin
 
 ### GitHub Actions
 
-- This repository is equipped with GitHub Actions for automatic data updates, which by default fetches data every 2 hours and pushes it to the `api` branch of the repository. Visiting <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/latest.json> will keep you up to date with the latest data, which can be called as an API; visiting <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/info.json> to get the corresponding information on the historical data stored in this repository
+- This repository is equipped with GitHub Actions for automatic data updates, which by default fetches data and pushes it to the `api` branch of the repository. Visiting <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/latest.json> will keep you up to date with the latest data, which can be called as an API; visiting <https://raw.githubusercontent.com/panghaibin/RiskLevelAPI/api/info.json> to get the corresponding information on the historical data stored in this repository
 
 - You can also use <https://api.risk-region.ml/latest.json> and <https://api.risk-region.ml/info.json> as an API, which are deployed on Cloudflare Pages
 
@@ -27,7 +27,7 @@ There is a frontend [here](https://covid.risk-region.ml/), and visit [panghaibin
 
 - Clone the repo to local and run *risklevel.py*, then the outcome as *.json* files will be stored in the `Archive` folder.
 
-- Or fork this repository and enable GitHub Actions to automatically update the risk level data every 2 hours and push to the `api` branch of the repository.
+- Or fork this repository and enable GitHub Actions to automatically update the risk level data and push to the `api` branch of the repository.
 
 - You can also set up a cron job on the server to run the *run.py* script to update the risk level data, and push to the specified repository automatically.
 
